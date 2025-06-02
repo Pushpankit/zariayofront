@@ -1,0 +1,133 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0a0a23;
+  color: white;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  flex-wrap: wrap;
+max-width: 100%;
+width: 100%;
+z-index: 9999;
+}
+
+.navbar-space{
+  height: 60px; /* Match the navbar height */
+}
+.navbar-logo {
+  color: #f97316 ;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+
+/* Main container for links, search, cart */
+.navbar-links-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: #f0a500;
+}
+
+/* Cart wrapper */
+
+.navbar-cart {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cart-icon {
+  font-size: 1.6rem;
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+.cart-icon:hover {
+  transform: scale(1.1);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.7rem;
+}
+
+/* Hamburger toggle */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.navbar-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar-links-container {
+    display: none;
+    flex-direction: column;
+    background-color: #0a0a23;
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .navbar-links-container.open {
+    display: flex;
+  }
+
+  .navbar-search-cart {
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+  }
+
+  .navbar-search input {
+    width: 80%;
+    margin-top: 0.5rem;
+  }
+
+  .navbar-toggle {
+    display: flex;
+  }
+}
+
+
+

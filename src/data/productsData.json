@@ -1,0 +1,94 @@
+[
+  {
+    "id": 1,
+    "title": "Casual Shirt",
+    "category": "shirts",
+    "pricesBySize": {
+      "S": 18.99,
+      "M": 19.99,
+      "L": 20.99
+    },
+    "originalPricesBySize": {
+      "S": 28.99,
+      "M": 29.99,
+      "L": 30.99
+    },
+    "image": "https://th.bing.com/th/id/OSK.HERO6ECdS39pBDEsyWl2J6vWkq3SGWaWO5axEU30JQMk-3Q?w=312&h=200&c=7&rs=1&o=6&pid=SANGAM",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+    "sizes": ["S", "M", "L"],
+    "stockBySize": {
+      "S": 2,
+      "M": 4,
+      "L": 0
+    }
+  },
+  {
+    "id": 2,
+    "title": "Denim pant",
+    "category": "pants",
+    "pricesBySize": {
+      "S": 18.99,
+      "M": 19.99,
+      "L": 20.99
+    },
+    "originalPricesBySize": {
+      "S": 28.99,
+      "M": 29.99,
+      "L": 30.99
+    },
+    "image": "https://th.bing.com/th/id/OIP.JKPaYJvtSUcWausi2xZQrwHaKL?rs=1&pid=ImgDetMain",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+    "sizes": ["S", "M", "L"],
+    "stockBySize": {
+      "S": 5,
+      "M": 0,
+      "L": 0
+    }
+  },
+  {
+    "id": 3,
+    "title": "Summer Dress",
+    "category": "dresses",
+    "pricesBySize": {
+      "S": 18.99,
+      "M": 19.99,
+      "L": 20.99
+    },
+    "originalPricesBySize": {
+      "S": 28.99,
+      "M": 29.99,
+      "L": 30.99
+    },
+    "image": "https://th.bing.com/th/id/OSK.HERO6ECdS39pBDEsyWl2J6vWkq3SGWaWO5axEU30JQMk-3Q?w=312&h=200&c=7&rs=1&o=6&pid=SANGAM",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+    "sizes": ["S", "M", "L"],
+    "stockBySize": {
+      "S": 1,
+      "M": 0,
+      "L": 3
+    }
+  },
+  {
+    "id": 4,
+    "title": "Track pants",
+    "category": "pants",
+    "pricesBySize": {
+      "S": 18.99,
+      "M": 19.99,
+      "L": 20.99
+    },
+    "originalPricesBySize": {
+      "S": 28.99,
+      "M": 29.99,
+      "L": 30.99
+    },
+    "image": "https://th.bing.com/th/id/OSK.HERO6ECdS39pBDEsyWl2J6vWkq3SGWaWO5axEU30JQMk-3Q?w=312&h=200&c=7&rs=1&o=6&pid=SANGAM",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+    "sizes": ["S", "M", "L"],
+    "stockBySize": {
+      "S": 0,
+      "M": 5,
+      "L": 5
+    }
+  }
+]

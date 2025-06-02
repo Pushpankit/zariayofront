@@ -1,0 +1,93 @@
+/* Card Container */
+.fresh-card {
+  position: relative;
+  width: 100%;
+  max-width: 260px;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fresh-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Image Wrapper & Badge */
+.image-wrapper {
+  position: relative;
+}
+
+.fresh-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+/* Red Discount Badge */
+.sale-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #e63946;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+/* Product Details */
+.fresh-details {
+  padding: 1rem;
+  text-align: center;
+}
+
+.fresh-title {
+  font-size: 1.1rem;
+  color: #111827;
+  margin-bottom: 0.4rem;
+}
+
+/* Price Styling */
+.fresh-price {
+  font-size: 1.1rem;
+  color: #2a9d8f;
+  margin: 8px 0;
+}
+
+.original-price {
+  font-size: 0.9rem;
+  color: #888;
+  text-decoration: line-through;
+  margin-left: 8px;
+}
+
+/* Button */
+.fresh-btn {
+  background-color: #0a0a23;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.fresh-btn:hover {
+  background-color: #1e1e40;
+}
+
+/* Optional Rating Layout */
+.fresh-rating {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin-bottom: 1rem;
+}
