@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/zariayofront/static/css/main.09cac991.css",
+    "main.js": "/zariayofront/static/js/main.aad4d141.js",
+    "index.html": "/zariayofront/index.html",
+    "main.09cac991.css.map": "/zariayofront/static/css/main.09cac991.css.map",
+    "main.aad4d141.js.map": "/zariayofront/static/js/main.aad4d141.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.09cac991.css",
+    "static/js/main.aad4d141.js"
+  ]
+}
