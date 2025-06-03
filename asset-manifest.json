@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/zariayofront/static/css/main.44850a7e.css",
-    "main.js": "/zariayofront/static/js/main.133cf161.js",
+    "main.css": "/zariayofront/static/css/main.e33cbd1e.css",
+    "main.js": "/zariayofront/static/js/main.e199393c.js",
     "index.html": "/zariayofront/index.html",
-    "main.44850a7e.css.map": "/zariayofront/static/css/main.44850a7e.css.map",
-    "main.133cf161.js.map": "/zariayofront/static/js/main.133cf161.js.map"
+    "main.e33cbd1e.css.map": "/zariayofront/static/css/main.e33cbd1e.css.map",
+    "main.e199393c.js.map": "/zariayofront/static/js/main.e199393c.js.map"
   },
   "entrypoints": [
-    "static/css/main.44850a7e.css",
-    "static/js/main.133cf161.js"
+    "static/css/main.e33cbd1e.css",
+    "static/js/main.e199393c.js"
   ]
 }
