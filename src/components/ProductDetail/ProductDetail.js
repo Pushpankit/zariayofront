@@ -10,38 +10,59 @@ const ProductDetail = () => {
   const { addToCart } = useCart();
 
   const product = products.find((item) => item.id === parseInt(id));
-  if (!product) return <div>Product not found!</div>;
 
+  // Always call hooks first
   const [selectedSize, setSelectedSize] = useState(null);
 
-  // On mount, default to "M" if in stock, else first available size
+  // Handle invalid product gracefully inside return, not before hooks
   useEffect(() => {
-    const inStockSizes = product.sizes.filter(size => product.stockBySize[size] > 0);
-    if (product.stockBySize["M"] > 0) {
+    if (!product) return;
+
+    const inStockSizes = product.sizes.filter(
+      (size) => product.stockBySize?.[size] > 0
+    );
+
+    if (product.stockBySize?.["M"] > 0) {
       setSelectedSize("M");
     } else if (inStockSizes.length > 0) {
       setSelectedSize(inStockSizes[0]);
     }
   }, [product]);
 
-  const noSizesInStock = !product.sizes.some(size => product.stockBySize[size] > 0);
+  if (!product) {
+    return (
+      <div className="product-detail">
+        <button className="back-btn" onClick={() => navigate(-1)}>
+          ← Go Back
+        </button>
+        <div>Product not found!</div>
+      </div>
+    );
+  }
+
+  const noSizesInStock = !product.sizes.some(
+    (size) => product.stockBySize?.[size] > 0
+  );
 
   const selectedPrice = product.pricesBySize?.[selectedSize];
   const selectedOriginalPrice = product.originalPricesBySize?.[selectedSize];
 
-  const discountPercent = selectedOriginalPrice > selectedPrice
-    ? Math.round(((selectedOriginalPrice - selectedPrice) / selectedOriginalPrice) * 100)
-    : null;
+  const discountPercent =
+    selectedOriginalPrice > selectedPrice
+      ? Math.round(
+          ((selectedOriginalPrice - selectedPrice) / selectedOriginalPrice) * 100
+        )
+      : null;
 
   const handleAddToCart = () => {
-    if (selectedSize && product.stockBySize[selectedSize] > 0) {
+    if (selectedSize && product.stockBySize?.[selectedSize] > 0) {
       addToCart({ ...product, selectedSize, price: selectedPrice });
       alert(`Added ${product.title} (${selectedSize}) to cart.`);
     }
   };
 
   const handleSizeClick = (size) => {
-    if (product.stockBySize[size] > 0) {
+    if (product.stockBySize?.[size] > 0) {
       setSelectedSize(size);
     } else {
       alert(`${size} size is out of stock.`);
@@ -50,12 +71,20 @@ const ProductDetail = () => {
 
   return (
     <div className="product-detail">
-      <button className="back-btn" onClick={() => navigate(-1)}>← Go Back</button>
+      <button className="back-btn" onClick={() => navigate(-1)}>
+        ← Go Back
+      </button>
 
       <div className="detail-container">
         <div className="image-wrapper">
-          {discountPercent && <div className="sale-badge">{discountPercent}% OFF</div>}
-          <img src={product.image} alt={product.title} className="detail-image" />
+          {discountPercent && (
+            <div className="sale-badge">{discountPercent}% OFF</div>
+          )}
+          <img
+            src={product.image}
+            alt={product.title}
+            className="detail-image"
+          />
         </div>
 
         <div className="detail-info">
@@ -79,9 +108,13 @@ const ProductDetail = () => {
 
           <div className="price-wrapper">
             {selectedOriginalPrice > selectedPrice && (
-              <span className="original-price">${selectedOriginalPrice.toFixed(2)}</span>
+              <span className="original-price">
+                ${selectedOriginalPrice.toFixed(2)}
+              </span>
             )}
-            <p className="price">${selectedPrice?.toFixed(2) ?? "N/A"}</p>
+            <p className="price">
+              ${selectedPrice?.toFixed(2) ?? "N/A"}
+            </p>
           </div>
 
           <div className="button-group">

@@ -14,10 +14,6 @@ const Cart = () => {
 
   const navigate = useNavigate();
 
-  const handleCheckout = () => {
-    alert("Checkout not implemented.");
-  };
-
   return (
     <div className="cart-page">
       <h2>Your Shopping Cart</h2>
@@ -82,7 +78,7 @@ const Cart = () => {
 
           <div className="cart-summary">
             <h3>Total: ${getCartTotal().toFixed(2)}</h3>
-            <button className="checkout-btn" onClick={handleCheckout}>
+            <button className="checkout-btn"  onClick={() => navigate("/checkout")}>
               Proceed to Checkout
             </button>
           </div>

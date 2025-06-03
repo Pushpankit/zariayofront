@@ -38,12 +38,16 @@ const Navbar = () => {
           <NavLink to="/contact" onClick={() => setIsOpen(false)} className={({ isActive }) => isActive ? "active" : ""}>
             Contact
           </NavLink>
+          <NavLink to="/login" onClick={() => setIsOpen(false)} className={({ isActive }) => isActive ? "active" : ""}>
+            Login
+          </NavLink>
         </div>
 
         
       </div>
 
       <div className="navbar-toggle" onClick={toggleMenu}>
+        <span className="bar"></span>
         <span className="bar"></span>
         <span className="bar"></span>
         <span className="bar"></span>
