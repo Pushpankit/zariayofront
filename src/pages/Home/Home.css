@@ -18,10 +18,9 @@ h2 {
 
 /* Product Grid */
 .product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 0 10px;
+    display: flex;
+    gap: 20px;
+    padding: 0 10px;
 }
 
 /* Responsive adjustments */
@@ -36,9 +35,11 @@ h2 {
     margin-bottom: 15px;
   }
 
-  .product-grid {
-    gap: 15px;
-  }
+      .product-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
 }
 
 @media (max-width: 480px) {

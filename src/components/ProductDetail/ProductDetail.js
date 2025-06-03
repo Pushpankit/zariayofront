@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import products from "../../data/productsData";
+import products from "../../data/productsData.json";
 import { useCart } from "../../context/CartContext";
 import "./ProductDetail.css";
 
@@ -9,124 +9,119 @@ const ProductDetail = () => {
   const navigate = useNavigate();
   const { addToCart } = useCart();
 
-  const product = products.find((item) => item.id === parseInt(id));
+  const product = products.find((p) => p.id === parseInt(id));
 
-  // Always call hooks first
   const [selectedSize, setSelectedSize] = useState(null);
+  const [mainImage, setMainImage] = useState(null);
 
-  // Handle invalid product gracefully inside return, not before hooks
   useEffect(() => {
     if (!product) return;
 
-    const inStockSizes = product.sizes.filter(
+    const availableSizes = product.sizes.filter(
       (size) => product.stockBySize?.[size] > 0
     );
-
-    if (product.stockBySize?.["M"] > 0) {
-      setSelectedSize("M");
-    } else if (inStockSizes.length > 0) {
-      setSelectedSize(inStockSizes[0]);
-    }
+    setSelectedSize(availableSizes[0] || null);
+    setMainImage(product.image?.[0] || null);
   }, [product]);
 
   if (!product) {
     return (
       <div className="product-detail">
-        <button className="back-btn" onClick={() => navigate(-1)}>
-          ← Go Back
-        </button>
-        <div>Product not found!</div>
+        <button onClick={() => navigate(-1)} className="go-back">← Go Back</button>
+        <p>Product not found!</p>
       </div>
     );
   }
 
-  const noSizesInStock = !product.sizes.some(
-    (size) => product.stockBySize?.[size] > 0
-  );
-
-  const selectedPrice = product.pricesBySize?.[selectedSize];
-  const selectedOriginalPrice = product.originalPricesBySize?.[selectedSize];
-
-  const discountPercent =
-    selectedOriginalPrice > selectedPrice
-      ? Math.round(
-          ((selectedOriginalPrice - selectedPrice) / selectedOriginalPrice) * 100
-        )
-      : null;
+  const price = product.pricesBySize[selectedSize];
+  const originalPrice = product.originalPricesBySize[selectedSize];
+  const discount =
+    originalPrice && originalPrice > price
+      ? Math.round(((originalPrice - price) / originalPrice) * 100)
+      : 0;
 
   const handleAddToCart = () => {
-    if (selectedSize && product.stockBySize?.[selectedSize] > 0) {
-      addToCart({ ...product, selectedSize, price: selectedPrice });
+    if (selectedSize && product.stockBySize[selectedSize] > 0) {
+      addToCart({ ...product, selectedSize, price });
       alert(`Added ${product.title} (${selectedSize}) to cart.`);
     }
   };
 
-  const handleSizeClick = (size) => {
-    if (product.stockBySize?.[size] > 0) {
-      setSelectedSize(size);
-    } else {
-      alert(`${size} size is out of stock.`);
+  const handleBuyNow = () => {
+    if (selectedSize && product.stockBySize[selectedSize] > 0) {
+      addToCart({ ...product, selectedSize, price });
+      navigate("/checkout");
     }
   };
 
   return (
     <div className="product-detail">
-      <button className="back-btn" onClick={() => navigate(-1)}>
-        ← Go Back
-      </button>
+      <button onClick={() => navigate(-1)} className="go-back">← Go Back</button>
 
       <div className="detail-container">
-        <div className="image-wrapper">
-          {discountPercent && (
-            <div className="sale-badge">{discountPercent}% OFF</div>
-          )}
-          <img
-            src={product.image}
-            alt={product.title}
-            className="detail-image"
-          />
+        <div className="images-section">
+          {discount > 0 && <div className="sale-badge">{discount}% OFF</div>}
+
+          <img src={mainImage} alt={product.title} className="main-image" />
+
+          <div className="thumbnail-row">
+            {product.image.map((img, idx) => (
+              <img
+                key={idx}
+                src={img}
+                alt={`Thumbnail ${idx + 1}`}
+                className={`thumbnail ${img === mainImage ? "selected" : ""}`}
+                onClick={() => setMainImage(img)}
+              />
+            ))}
+          </div>
         </div>
 
-        <div className="detail-info">
+        <div className="info-section">
           <h2>{product.title}</h2>
-          <p className="description">{product.description}</p>
+          <p>{product.description}</p>
 
-          <div className="size-selector">
+          <div className="sizes">
             <p>Select Size:</p>
             <div className="size-buttons">
-              {product.sizes.map((size) => (
-                <button
-                  key={size}
-                  className={`size-btn ${selectedSize === size ? "selected" : ""}`}
-                  onClick={() => handleSizeClick(size)}
-                >
-                  {size}
-                </button>
-              ))}
+              {product.sizes.map((size) => {
+                const inStock = product.stockBySize[size] > 0;
+                return (
+                  <button
+                    key={size}
+                    disabled={!inStock}
+                    className={selectedSize === size ? "selected" : ""}
+                    onClick={() => inStock && setSelectedSize(size)}
+                  >
+                    {size}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
-          <div className="price-wrapper">
-            {selectedOriginalPrice > selectedPrice && (
-              <span className="original-price">
-                ${selectedOriginalPrice.toFixed(2)}
-              </span>
+          <div className="prices">
+            {discount > 0 && (
+              <span className="original-price">${originalPrice.toFixed(2)}</span>
             )}
-            <p className="price">
-              ${selectedPrice?.toFixed(2) ?? "N/A"}
-            </p>
+            <span className="current-price">${price?.toFixed(2)}</span>
           </div>
 
-          <div className="button-group">
-            <button className="buy-btn" disabled={noSizesInStock}>
-              {noSizesInStock ? "Available Soon" : "Buy Now"}
-            </button>
+          <div className="button-row">
             <button
-              className="add-to-cart-btn"
-              onClick={handleAddToCart}
-              disabled={noSizesInStock}
+              className="buy-now"
+              disabled={!selectedSize || product.stockBySize[selectedSize] === 0}
+              onClick={handleBuyNow}
             >
-              {noSizesInStock ? "Out of Stock" : "Add to Cart"}
+              Buy Now
+            </button>
+
+            <button
+              className="add-to-cart"
+              disabled={!selectedSize || product.stockBySize[selectedSize] === 0}
+              onClick={handleAddToCart}
+            >
+              Add to Cart
             </button>
           </div>
         </div>

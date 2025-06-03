@@ -6,7 +6,7 @@ import Slider from "../../components/Slider/Slider";
 import "./Home.css";
 
 const Home = () => {
-  const featuredProducts = products.slice(0, 3);
+  const featuredProducts = products.slice(0, 4);
 
   return (
     <div className="home-container">

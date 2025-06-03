@@ -1,37 +1,39 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar";
+import React, { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Shop from "./pages/Shop/Shop";
 import Contact from "./pages/Contact/Contact";
+import Login from "./pages/Auth/Login";
+import ProductDetail from "./components/ProductDetail/ProductDetail";
 import Footer from "./components/Footer/Footer";
- import ProductDetail from "./components/ProductDetail/ProductDetail";
- import Cart from "./pages/Cart/Cart";
- import Login from "./pages/Auth/Login";
- import Signup from "./pages/Auth/Singup";
-import Checkout from "./pages/Checkout/Checkout";
+import Navbar from "./components/Navbar/Navbar";
 
+// ScrollToTop logic stays here
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pathname]);
+  return null;
+};
 
-function App() {
+const App = () => {
   return (
     <>
+      <ScrollToTop />
       <Navbar />
-<Routes>
-  <Route path="/" element={<Home />} />
-  <Route path="/shop" element={<Shop />} />
-  <Route path="/contact" element={<Contact />} />
-  <Route path="/product/:id" element={<ProductDetail />} /> 
-  <Route path="/cart" element={<Cart />} />
-<Route path="/login" element={<Login />} />
-<Route path="/signup" element={<Signup />} />
-<Route path="/checkout" element={<Checkout />} />
 
-</Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+      </Routes>
 
-      
-      <Footer/>
+      <Footer />
     </>
   );
-}
+};
 
 export default App;

@@ -18,13 +18,13 @@ const Footer = () => {
           <NavLink to="/">
             Home
           </NavLink>
-          <NavLink to="/shop" >
+          <NavLink to="/shop/" >
             Shop
           </NavLink>
-          <NavLink to="/contact" >
+          <NavLink to="/contact/" >
             Contact
           </NavLink>
-          <NavLink to="/login" >
+          <NavLink to="/login/" >
             Login
           </NavLink>
         </div>

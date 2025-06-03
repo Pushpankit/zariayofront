@@ -13,7 +13,12 @@
       "M": 29.99,
       "L": 30.99
     },
-    "image": "https://th.bing.com/th/id/OSK.HERO6ECdS39pBDEsyWl2J6vWkq3SGWaWO5axEU30JQMk-3Q?w=312&h=200&c=7&rs=1&o=6&pid=SANGAM",
+    "image":[
+      "https://th.bing.com/th/id/OSK.HERO6ECdS39pBDEsyWl2J6vWkq3SGWaWO5axEU30JQMk-3Q?w=312&h=200&c=7&rs=1&o=6&pid=SANGAM",
+   "https://th.bing.com/th/id/OIP.JKPaYJvtSUcWausi2xZQrwHaKL?rs=1&pid=ImgDetMain",
+    "https://th.bing.com/th/id/OSK.HERO6ECdS39pBDEsyWl2J6vWkq3SGWaWO5axEU30JQMk-3Q?w=312&h=200&c=7&rs=1&o=6&pid=SANGAM",
+    "https://th.bing.com/th/id/OSK.HERO6ECdS39pBDEsyWl2J6vWkq3SGWaWO5axEU30JQMk-3Q?w=312&h=200&c=7&rs=1&o=6&pid=SANGAM"
+    ] ,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
     "sizes": ["S", "M", "L"],
     "stockBySize": {
@@ -36,7 +41,12 @@
       "M": 29.99,
       "L": 30.99
     },
-    "image": "https://th.bing.com/th/id/OIP.JKPaYJvtSUcWausi2xZQrwHaKL?rs=1&pid=ImgDetMain",
+    "image":[
+       "https://th.bing.com/th/id/OIP.JKPaYJvtSUcWausi2xZQrwHaKL?rs=1&pid=ImgDetMain",
+       "https://th.bing.com/th/id/OSK.HERO6ECdS39pBDEsyWl2J6vWkq3SGWaWO5axEU30JQMk-3Q?w=312&h=200&c=7&rs=1&o=6&pid=SANGAM",
+       "https://th.bing.com/th/id/OIP.JKPaYJvtSUcWausi2xZQrwHaKL?rs=1&pid=ImgDetMain",
+       "https://th.bing.com/th/id/OIP.JKPaYJvtSUcWausi2xZQrwHaKL?rs=1&pid=ImgDetMain"
+    ],
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
     "sizes": ["S", "M", "L"],
     "stockBySize": {
@@ -59,7 +69,12 @@
       "M": 29.99,
       "L": 30.99
     },
-    "image": "https://th.bing.com/th/id/OSK.HERO6ECdS39pBDEsyWl2J6vWkq3SGWaWO5axEU30JQMk-3Q?w=312&h=200&c=7&rs=1&o=6&pid=SANGAM",
+    "image": [
+      "https://th.bing.com/th/id/OSK.HERO6ECdS39pBDEsyWl2J6vWkq3SGWaWO5axEU30JQMk-3Q?w=312&h=200&c=7&rs=1&o=6&pid=SANGAM",
+      "https://th.bing.com/th/id/OSK.HERO6ECdS39pBDEsyWl2J6vWkq3SGWaWO5axEU30JQMk-3Q?w=312&h=200&c=7&rs=1&o=6&pid=SANGAM",
+      "https://th.bing.com/th/id/OSK.HERO6ECdS39pBDEsyWl2J6vWkq3SGWaWO5axEU30JQMk-3Q?w=312&h=200&c=7&rs=1&o=6&pid=SANGAM",
+      "https://th.bing.com/th/id/OSK.HERO6ECdS39pBDEsyWl2J6vWkq3SGWaWO5axEU30JQMk-3Q?w=312&h=200&c=7&rs=1&o=6&pid=SANGAM"
+      ],
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
     "sizes": ["S", "M", "L"],
     "stockBySize": {
@@ -82,7 +97,11 @@
       "M": 29.99,
       "L": 30.99
     },
-    "image": "https://th.bing.com/th/id/OSK.HERO6ECdS39pBDEsyWl2J6vWkq3SGWaWO5axEU30JQMk-3Q?w=312&h=200&c=7&rs=1&o=6&pid=SANGAM",
+    "image": ["https://th.bing.com/th/id/OSK.HERO6ECdS39pBDEsyWl2J6vWkq3SGWaWO5axEU30JQMk-3Q?w=312&h=200&c=7&rs=1&o=6&pid=SANGAM",
+    "https://th.bing.com/th/id/OSK.HERO6ECdS39pBDEsyWl2J6vWkq3SGWaWO5axEU30JQMk-3Q?w=312&h=200&c=7&rs=1&o=6&pid=SANGAM",
+    "https://th.bing.com/th/id/OSK.HERO6ECdS39pBDEsyWl2J6vWkq3SGWaWO5axEU30JQMk-3Q?w=312&h=200&c=7&rs=1&o=6&pid=SANGAM",
+    "https://th.bing.com/th/id/OSK.HERO6ECdS39pBDEsyWl2J6vWkq3SGWaWO5axEU30JQMk-3Q?w=312&h=200&c=7&rs=1&o=6&pid=SANGAM"
+    ],
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
     "sizes": ["S", "M", "L"],
     "stockBySize": {
