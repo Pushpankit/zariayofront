@@ -3,13 +3,16 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
+import { AuthProvider } from "./context/AuthContext"; // ✅ Import AuthProvider
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-   <BrowserRouter basename="/zariayofront">
-      <CartProvider>
-        <App />
-      </CartProvider>
+    <BrowserRouter>
+      <AuthProvider> {/* ✅ Wrap your app with AuthProvider */}
+        <CartProvider>
+          <App />
+        </CartProvider>
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
